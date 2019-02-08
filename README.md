@@ -1,4 +1,4 @@
-# Demo app for Trivago Case Study
+# Trivago Case Study
 This repository contains all the source code and configuration files that are been used on the Trivago case study
 
 ## Infraestructure
