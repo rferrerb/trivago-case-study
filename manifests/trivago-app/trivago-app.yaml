@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trivago-app
+  labels:
+    app: trivago-app
+spec:
+  ports:
+    - name: web 
+      port: 80
+      targetPort: 8080
+  selector:
+    app: trivago-app
+    tier: trivago-app
+  type: NodePort
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: trivago-app
+  labels:
+    app: trivago-app
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: trivago-app
+        tier: trivago-app
+    spec:
+      containers:
+      - image: 127.0.0.1:30400/trivago-app:latest
+        name: trivago-app
+        ports:
+        - containerPort: 8080
+          name: trivago-app

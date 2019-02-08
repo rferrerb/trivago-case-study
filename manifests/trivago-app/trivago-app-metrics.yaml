@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    serviceapp: trivago-app-servicemonitor
+  name: trivago-app-servicemonitor
+  namespace: monitoring
+spec:
+  endpoints:
+  - port: web
+    interval: 10s
+  namespaceSelector:
+    matchNames:
+     - default
+  selector:
+    matchLabels:
+      app: trivago-app

@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: monitoring-ingress-nginx
+  namespace: monitoring
+  annotations:
+spec:
+  rules:
+  - host: grafana.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: grafana
+         servicePort: http
+  - host: prometheus.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: prometheus-k8s
+         servicePort: web
+  - host: service-prometheus.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: service-prometheus
+         servicePort: web
+  - host: alerting.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: alertmanager-main
+         servicePort: web

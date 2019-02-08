@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"Alertmanager","metadata":{"annotations":{},"creationTimestamp":"2019-02-04T14:46:04Z","generation":2,"labels":{"alertmanager":"main"},"name":"main","namespace":"monitoring","resourceVersion":"32183","selfLink":"/apis/monitoring.coreos.com/v1/namespaces/monitoring/alertmanagers/main","uid":"98cbd06d-288b-11e9-b1d7-080027ba89f6"},"spec":{"baseImage":"quay.io/prometheus/alertmanager","nodeSelector":{"beta.kubernetes.io/os":"linux"},"replicas":3,"securityContext":{"fsGroup":2000,"runAsNonRoot":true,"runAsUser":1000},"serviceAccountName":"alertmanager-main","version":"v0.16.0"}}
+  creationTimestamp: 2019-02-04T14:46:04Z
+  generation: 3
+  labels:
+    alertmanager: main
+  name: main
+  namespace: monitoring
+  resourceVersion: "32917"
+  selfLink: /apis/monitoring.coreos.com/v1/namespaces/monitoring/alertmanagers/main
+  uid: 98cbd06d-288b-11e9-b1d7-080027ba89f6
+spec:
+  baseImage: quay.io/prometheus/alertmanager
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+  replicas: 1
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  serviceAccountName: alertmanager-main
+  version: v0.16.0

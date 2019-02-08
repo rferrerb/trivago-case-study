@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 0
+spec:
+  rules:
+  - host: docker.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: registry-ui
+         servicePort: registry
+  - host: docker-registry.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: registry
+         servicePort: registry
+  - host: jenkins.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: jenkins
+         servicePort: 80
+  - host: trivago-app.rfb.ovh
+    http:
+      paths:
+      - backend:
+         serviceName: trivago-app
+         servicePort: 80
